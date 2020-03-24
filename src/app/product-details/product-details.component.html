@@ -1,0 +1,17 @@
+<div *ngIf="hasFetchError == true; else productDetails">
+    <div class="alert alert-danger text-center">
+        Nie udało się pobrać produktu<br />
+        {{fetchMessageResponse}}
+    </div>
+</div>
+
+<ng-template #productDetails>
+    <h3>{{product.Name}}</h3>
+    <hr />
+    <img alt="productImage" src={{product.ImagePath}} class="img-thumbnail mx-auto" style="display: block; margin-bottom: 10px" /><br />
+    <p class="text-justify">{{product.Description}}</p><br />
+    <b>Cena: </b> {{product.Price}} PLN<br />
+    <b>Ilość: </b> {{product.Quantity}} szt.<br /><br />
+    <div class="btn btn-primary" style="margin-right: 10px">Dodaj do koszyka</div>
+    <div class="btn btn-info" (click)="goBack()">Powrót</div>
+</ng-template>

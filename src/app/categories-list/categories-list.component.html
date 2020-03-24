@@ -1,7 +1,7 @@
 <div *ngIf="hasFetchError == true; else categoriesList">
-    <p style="color: red">{{fetchError}}</p>
-    <div *ngIf="fetchMessageResponse != null">
-        <p style="color: red">{{fetchMessageResponse}}</p>
+    <div class="alert alert-danger text-center">
+        Nie udało się pobrać kategorii<br />
+        {{fetchMessageResponse}}
     </div>
 </div>
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import ApiResponse from '../../models/ApiResponse';
-import Product from '../../models/Product';
+import ApiResponse from 'src/models/ApiResponse';
+import Product from 'src/models/Product';
 
 @Component({
   selector: 'products-list',
@@ -9,7 +9,6 @@ import Product from '../../models/Product';
 })
 export class ProductsListComponent implements OnInit {
   products: Array<Product>;
-  fetchError: string;
   hasFetchError: boolean;
   fetchMessageResponse: string;
 
@@ -21,7 +20,7 @@ export class ProductsListComponent implements OnInit {
 
   async getProducts(): Promise<void> {
     try {
-      let response = await fetch('https://localhost:5001/api/product/getProducts?categoryId=1234').then(async res => { return <ApiResponse>await res.json(); });
+      let response = await fetch('https://localhost:5001/api/product/getProducts').then(async res => { return <ApiResponse>await res.json(); });
       if(response.isSuccessStatusCode) {
         let products = await <Array<Product>>JSON.parse(response.content);
         products.forEach(product => product.ImagePath = `assets/images/products/${product.ImageName}`);
@@ -34,7 +33,6 @@ export class ProductsListComponent implements OnInit {
       }
     }
     catch {
-      this.fetchError = 'Nie udało się pobrać produktów';
       this.hasFetchError = true;
     }
   }

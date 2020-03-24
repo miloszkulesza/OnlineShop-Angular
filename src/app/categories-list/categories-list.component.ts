@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Category from '../../models/Category';
-import ApiResponse from '../../models/ApiResponse';
+import Category from 'src/models/Category';
+import ApiResponse from 'src/models/ApiResponse';
 
 @Component({
   selector: 'categories-list',
@@ -9,7 +9,6 @@ import ApiResponse from '../../models/ApiResponse';
 })
 export class CategoriesListComponent implements OnInit {
   categories: Array<Category>;
-  fetchError: string;
   hasFetchError: boolean;
   fetchMessageResponse: string;
 
@@ -33,7 +32,6 @@ export class CategoriesListComponent implements OnInit {
       }
     }
     catch{
-      this.fetchError = "Nie udało się pobrać kategorii";
       this.hasFetchError = true;
     }
   }

@@ -1,13 +1,14 @@
 <div *ngIf="hasFetchError == true; else productsList">
-    <p style="color: red;">Nie udało się pobrać produktów</p>
-    <div *ngIf="fetchMessageResponse != null">
-        <p style="color: red">{{fetchMessageResponse}}</p>
+    <div class="alert alert-danger text-center">
+        Nie udało się pobrać produktów<br />
+        {{fetchMessageResponse}}
     </div>
 </div>
+
 <ng-template #productsList>
     <div *ngFor="let product of products">
         <div class="card" style="margin-bottom: 15px;">
-            <a>
+            <a routerLink='/productDetails/{{product.Id}}' routerLinkActive="active">
                 <h5 class="card-header">{{product.Name}}</h5>
             </a>
             <div class="card-body">
