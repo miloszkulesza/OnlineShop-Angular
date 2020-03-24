@@ -1,0 +1,15 @@
+<div *ngIf="hasFetchError == true; else categoriesList">
+    <p style="color: red">{{fetchError}}</p>
+    <div *ngIf="fetchMessageResponse != null">
+        <p style="color: red">{{fetchMessageResponse}}</p>
+    </div>
+</div>
+
+<ng-template #categoriesList>
+    <div class="list-group">
+        <div class="list-group-item list-group-item-action selectedCategory bg-primary text-white" id="all">Wszystkie</div>
+        <div *ngFor='let category of categories'>
+            <div class="list-group-item list-group-item-action">{{category.Name}}</div>
+        </div>
+    </div>
+</ng-template>
