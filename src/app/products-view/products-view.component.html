@@ -1,8 +1,14 @@
-<div class="row">
-    <div class='col-2'>
-        <categories-list></categories-list>
-    </div>
-    <div class='col-10'>
-        <products-list></products-list>
-    </div>
+<div *ngIf='isLoading == true; else productsView'>
+    <loading-spinner></loading-spinner>
 </div>
+
+<ng-template #productsView>
+    <div class="row">
+        <div class='col-2'>
+            <categories-list [categories]='categories' [hasFetchError]='hasCategoriesFetchError' [fetchMessageResponse]='categoriesFetchErrorMessage'></categories-list>
+        </div>
+        <div class='col-10'>
+            <products-list [products]='products' [hasFetchError]='hasProductsFetchError' [fetchMessageResponse]='productsFetchErrorMessage'></products-list>
+        </div>
+    </div>
+</ng-template>

@@ -10,3 +10,10 @@ footer {
     text-align: center;
     margin-bottom: 10px;
 }
+
+.loading-spinner {
+    position: fixed;
+    z-index: 4;
+    top: 20vh;
+    left: 40vw;
+}

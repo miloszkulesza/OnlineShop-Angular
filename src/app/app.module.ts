@@ -8,6 +8,7 @@ import { CategoriesListComponent } from './categories-list/categories-list.compo
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsViewComponent } from './products-view/products-view.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 const appRoutes: Routes = [
   { path: '', component: ProductsViewComponent },
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
     ProductsListComponent,
     CategoriesListComponent,
     ProductDetailsComponent,
-    ProductsViewComponent
+    ProductsViewComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     RouterModule.forRoot(
