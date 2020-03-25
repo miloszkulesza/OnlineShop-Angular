@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Inject } from '@angular/core';
+import { Component, OnInit, Input, } from '@angular/core';
 import Category from 'src/models/Category';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'categories-list',
@@ -12,7 +11,7 @@ export class CategoriesListComponent implements OnInit {
   @Input() fetchMessageResponse: string;
   @Input() categories: Array<Category>;
 
-  constructor(@Inject(DOCUMENT) document) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
