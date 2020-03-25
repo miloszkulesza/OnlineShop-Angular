@@ -7,9 +7,9 @@
 
 <ng-template #categoriesList>
     <div class="list-group">
-        <div class="list-group-item list-group-item-action selectedCategory bg-primary text-white" id="all">Wszystkie</div>
+        <div class="list-group-item list-group-item-action categoryItem selectedCategory bg-primary text-white" #all id='all' (click)='handleSelectedCategoryChanged($event)'>Wszystkie</div>
         <div *ngFor='let category of categories'>
-            <div class="list-group-item list-group-item-action" id={{category.Id}}>{{category.Name}}</div>
+            <div class="list-group-item list-group-item-action categoryItem" #{{category.Id}} id={{category.Id}} (click)='handleSelectedCategoryChanged($event)'>{{category.Name}}</div>
         </div>
     </div>
 </ng-template>
