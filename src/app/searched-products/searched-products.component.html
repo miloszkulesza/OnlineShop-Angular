@@ -1,0 +1,29 @@
+<div *ngIf="isSuccessSearch == false; else productsList">
+    <div class="alert alert-danger text-center">
+        Nie znaleziono produktów<br />
+        {{reasonPhrase}}
+    </div>
+</div>
+
+<ng-template #productsList>
+    <div *ngFor="let product of products">
+        <div class="card" style="margin-bottom: 15px;">
+            <a routerLink='/productDetails/{{product.Id}}' routerLinkActive="active">
+                <h5 class="card-header">{{product.Name}}</h5>
+            </a>
+            <div class="card-body">
+                <a>
+                    <img src={{product.ImagePath}} class="img-thumbnail align-content-center"
+                        style="float: left; height: 170px; margin-right: 10px;" />
+                </a>
+                <p class="card-text text-justify">{{product.Description}}</p>
+            </div>
+            <div class="card-footer">
+                <b style="font-size: 22px;">{{product.Price}} PLN</b>
+                <a class="btn btn-primary" style="float: right;">
+                    Do koszyka
+                </a>
+            </div>
+        </div>
+    </div>
+</ng-template>

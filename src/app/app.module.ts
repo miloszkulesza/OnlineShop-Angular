@@ -9,10 +9,13 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsViewComponent } from './products-view/products-view.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { SearchComponent } from './search/search.component';
+import { SearchedProductsComponent } from './searched-products/searched-products.component';
 
 const appRoutes: Routes = [
   { path: '', component: ProductsViewComponent },
-  { path: 'productDetails/:productId', component: ProductDetailsComponent }
+  { path: 'productDetails/:productId', component: ProductDetailsComponent },
+  { path: 'searchProducts/:searchText', component: SearchedProductsComponent }
 ];
 
 @NgModule({
@@ -23,7 +26,9 @@ const appRoutes: Routes = [
     CategoriesListComponent,
     ProductDetailsComponent,
     ProductsViewComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    SearchComponent,
+    SearchedProductsComponent
   ],
   imports: [
     RouterModule.forRoot(
